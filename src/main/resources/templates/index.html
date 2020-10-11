@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+        <title>List Of Users</title>
+            <style>
+                table th, table td {padding: 7px;}
+                body {font-family: sans-serif;}
+            </style>
+</head>
+
+<body>
+<h1>List Of Users</h1>
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Profession</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Action</th>
+    </tr>
+
+    <tr th:each="user : ${listOfUsers}">
+
+        <td th:utext="${user.id}">Id</td>
+        <td th:utext="${user.firstName}">First Name</td>
+        <td th:utext="${user.lastName}">Last Name</td>
+        <td th:utext="${user.age}">Age</td>
+        <td th:utext="${user.profession}">Profession</td>
+        <td th:utext="${user.username}">Username</td>
+        <td th:utext="${user.password}">Password</td>
+        <td>
+            <a href="/admin/edit" th:href="@{/admin/edit(id=${user.id})}">edit</a>
+            <a href="/admin/delete" th:href="@{/admin/delete(id=${user.id})}">delete</a>
+        </td>
+
+    </tr>
+</table>
+
+<h3> <a href="/admin/add">Add New User</a> </h3>
+<h3> <a href="/admin/clearAll">Clear All</a> </h3>
+<h3> <a href="/user">User Info Page</a> </h3>
+<h5> <a th:href="@{/logout}">Logout</a> </h5>
+
+</body>
+</html>

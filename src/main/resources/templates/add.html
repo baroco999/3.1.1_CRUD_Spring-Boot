@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+        <title>Add User</title>
+            <style>
+                body {font-family: sans-serif;}
+            </style>
+</head>
+
+<body>
+
+<h1>Add User</h1>
+
+<form action="/admin/add" method="POST">
+
+    <label for="first_name">First Name</label>
+    <input type="text" th:name="firstName" id="first_name">
+    <br> <br>
+    <label for="last_name">Last Name</label>
+    <input type="text" th:name="lastName" id="last_name">
+    <br> <br>
+    <label for="age">Age &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+    <input type="text" th:name="age" id="age">
+    <br> <br>
+    <label for="profession">Profession</label>
+    <input type="text" th:name="profession" id="profession">
+    <br> <br>
+    <label for="username">Username</label>
+    <input type="text" th:name="username" id="username">
+    <br> <br>
+    <label for="password">Password</label>
+    <input type="text" th:name="password" id="password">
+    <br> <br>
+    <input type="checkbox" name="role1" value="ROLE_USER" checked="checked"> User
+    <br> <br>
+    <input type="checkbox" name="role2" value="ROLE_ADMIN"> Admin
+    <br> <br>
+    <input type="submit" value="Submit">
+    <br> <br>
+    <input type="reset" value="Clear">
+</form>
+
+<br>
+<h5> <a th:href="@{/logout}">Logout</a> </h5>
+
+</body>
+</html>
